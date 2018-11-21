@@ -1,0 +1,28 @@
+NIMBUS Framework
+------------------
+Nimbus framework is built on spring farmework.
+The two main components are like Front & Back End parts which are like front end is of using Anjular 4 ,RxJs, SASS 
+and BackEnd be like Spring framework components, Activiti, Drools, Query DSL, RxJava
+
+As observing of the Nimbus Framework Overview i can see that Domain is configured on Entity and it is having some transverse like Config,State,Command,Version.
+@Domain which is an Annotation configured on appropriate class with value and also the Listeners which is of Persistance and etc.. where i have observed this in UserClient class.
+While coming to Config i can see there were EntityConfig , RulesConfig , WorkflowConfig 
+DefaultModelConfig and DefaultParamConfig were taken part in configratution of the framework and for RulesConfig DroolsRuleConfig having control part of path and etc.. Based on the Config the process is taken part i.e internally the navigation process takes place.
+And i can observe RulesConfig is for DroolsRuleConfig which is for Business Rules Management System (BRMS) solution which i have observed in https://www.drools.org 
+and rules can be configured at Entity Level where entity is updated. @Rule is configured in code level i.e getting of Param value().
+
+
+And coming to Command there were Action & Behaviour which will Executor.
+In Command there were setAction,setEvent,setBehaviour,setRoot and setClientUserId which are given from source as these will be initations for tasks process
+As per my understanding if an event is triggered there will be command with action and behaviour i.e giving ModelEvent to listen() and get appropriate Action event in ParamStateAtomicPersistenceEventListener class. Action Event like get,Save,update,replace,etc.. and based on this respective process will take place.
+
+And coming to State there were Entity State & Audit & Process State
+The process of entity is to be preffered as State.The State allows the Events that need to be done using resource like get,load,change,execute all the things can be done.All the Events will be done in a process.
+
+
+And i can observe WebCommandDispatcher class which handels the requests and ModelEvent by building respective request , URI , Event using help of WebCommandBuilder.
+
+@Config
+-----------
+It is an annotation which is configured with set of opotions like Uri,When,order for defining the process. It is configured on top of the feilds.In config if it starts with /p identifies the application associated with the request and it is processed with an Action.
+After that i observed it is defined with Domain like @Domain with the appropriate value defining over there and there is like operations need to be defined after the domain like _new,_get,_update etc... for an example if it is _new there would be an initEntity with fn and also with the target and the json values that are being send. 
