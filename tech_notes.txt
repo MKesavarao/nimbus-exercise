@@ -19,10 +19,12 @@ As per my understanding if an event is triggered there will be command with acti
 And coming to State there were Entity State & Audit & Process State
 The process of entity is to be preffered as State.The State allows the Events that need to be done using resource like get,load,change,execute all the things can be done.All the Events will be done in a process.
 
+I can understand that UI components and design is maintained from class level like Buttons,Select etc... 
 
 And i can observe WebCommandDispatcher class which handels the requests and ModelEvent by building respective request , URI , Event using help of WebCommandBuilder.
 
+
 @Config
 -----------
-It is an annotation which is configured with set of opotions like Uri,When,order for defining the process. It is configured on top of the feilds.In config if it starts with /p identifies the application associated with the request and it is processed with an Action.
+It is an annotation which is configured with set of options like Uri,When,order for defining the process. It is configured on top of the feild.In config if it starts with /p identifies the application associated with the request and it is processed with an Action.
 After that i observed it is defined with Domain like @Domain with the appropriate value defining over there and there is like operations need to be defined after the domain like _new,_get,_update etc... for an example if it is _new there would be an initEntity with fn and also with the target and the json values that are being send. 
